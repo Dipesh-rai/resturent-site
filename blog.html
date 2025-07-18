@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savory Bites Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Professional Color Scheme */
+        :root {
+            --primary: #333333; /* Dark gray */
+            --secondary: #8B5A2B; /* Rich brown */
+            --light: #F8F8F8;
+            --text: #333333;
+            --text-light: #777777;
+            --border: #eaeaea;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: white;
+            padding: 40px 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Blog Header */
+        .blog-intro {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .blog-intro h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .blog-intro p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .blog-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-card-img img {
+            transform: scale(1.05);
+        }
+
+        .blog-card-content {
+            padding: 25px;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .blog-card-meta span {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        .blog-card-meta i {
+            margin-right: 5px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .blog-card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--primary);
+        }
+
+        .read-more:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Featured Post */
+        .featured-post {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 60px;
+        }
+
+        .featured-post-img {
+            border-radius: 6px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .featured-post-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-post-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-post .blog-card-meta {
+            margin-bottom: 20px;
+        }
+
+        .featured-post h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .featured-post p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        /* Categories */
+        .blog-categories {
+            margin-bottom: 50px;
+        }
+
+        .blog-categories h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .blog-categories h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .categories-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--light);
+            color: var(--text);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .category-tag:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .newsletter h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .newsletter p {
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto 25px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 4px 0 0 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post-img {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .blog-intro h1 {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 4px;
+            }
+            
+            .newsletter-form button {
+                margin-top: 10px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Blog Intro -->
+        <div class="blog-intro">
+            <h1>Savory Bites Journal</h1>
+            <p>Discover culinary insights, chef's secrets, and the latest food trends from our kitchen to yours.</p>
+        </div>
+
+        <!-- Featured Post -->
+        <div class="featured-post">
+            <div class="featured-post-img">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Featured Post">
+            </div>
+            <div class="featured-post-content">
+                <div class="blog-card-meta">
+                    <span><i class="fas fa-calendar-alt"></i> June 15, 2023</span>
+                    <span><i class="fas fa-tag"></i> Recipes</span>
+                </div>
+                <h2>The Art of Perfect Pasta: Techniques from Our Executive Chef</h2>
+                <p>Learn the secrets to crafting restaurant-quality pasta at home with these professional techniques, from dough preparation to perfect al dente cooking every time.</p>
+                <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Wine Pairing">
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span><i class="fas fa-calendar-alt"></i> June 10, 2023</span>
+                        <span><i class="fas fa-tag"></i> Wine</span>
+                    </div>
+                    <h2>Summer Wine Pairings for Your Backyard BBQ</h2>
+                    <p>Discover the perfect wines to complement your grilled favorites this summer season, with recommendations from our sommelier.</p>
+                    <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cocktails">
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span><i class="fas fa-calendar-alt"></i> June 5, 2023</span>
+                        <span><i class="fas fa-tag"></i> Mixology</span>
+                    </div>
+                    <h2>Craft Cocktails: Seasonal Ingredients for Summer Sipping</h2>
+                    <p>Our head bartender shares his favorite summer cocktail recipes featuring fresh, seasonal ingredients.</p>
+                    <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dining Experience">
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span><i class="fas fa-calendar-alt"></i> May 28, 2023</span>
+                        <span><i class="fas fa-tag"></i> Dining</span>
+                    </div>
+                    <h2>The Evolution of Fine Dining: Trends Shaping 2023</h2>
+                    <p>Explore how fine dining is transforming with new service styles, ingredient focuses, and guest experience innovations.</p>
+                    <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Kitchen Tools">
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span><i class="fas fa-calendar-alt"></i> May 20, 2023</span>
+                        <span><i class="fas fa-tag"></i> Equipment</span>
+                    </div>
+                    <h2>Essential Kitchen Tools Every Home Cook Should Own</h2>
+                    <p>Our chefs reveal the professional-grade tools that are worth investing in for your home kitchen.</p>
+                    <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Burger">
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span><i class="fas fa-calendar-alt"></i> May 15, 2023</span>
+                        <span><i class="fas fa-tag"></i> Recipes</span>
+                    </div>
+                    <h2>The Science of the Perfect Burger: Our Chef's Secrets</h2>
+                    <p>Learn the techniques behind crafting the juiciest, most flavorful burgers from our grill master.</p>
+                    <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-img">
+                    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Wine Cellar">
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-meta">
+                        <span><i class="fas fa-calendar-alt"></i> May 10, 2023</span>
+                        <span><i class="fas fa-tag"></i> Wine</span>
+                    </div>
+                    <h2>Building a Restaurant-Quality Wine Cellar on a Budget</h2>
+                    <p>Our sommelier guides you through selecting quality wines that won't break the bank but will impress your guests.</p>
+                    <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Categories -->
+        <div class="blog-categories">
+            <h3>Explore Categories</h3>
+            <div class="categories-list">
+                <a href="#" class="category-tag">Recipes</a>
+                <a href="#" class="category-tag">Wine</a>
+                <a href="#" class="category-tag">Techniques</a>
+                <a href="#" class="category-tag">Ingredients</a>
+                <a href="#" class="category-tag">Dining</a>
+                <a href="#" class="category-tag">Mixology</a>
+                <a href="#" class="category-tag">Equipment</a>
+                <a href="#" class="category-tag">Chef's Tips</a>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newsletter">
+            <h3>Subscribe to Our Newsletter</h3>
+            <p>Get the latest recipes, cooking tips, and restaurant news delivered straight to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simple animations
+        const animateElements = document.querySelectorAll('.blog-card, .featured-post, .blog-categories, .newsletter');
+        
+        animateElements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 100 * index);
+        });
+
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

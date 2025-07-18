@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details | Savory Bites</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern Event Detail Styling */
+        :root {
+            --primary: #c19a6b;
+            --dark: #3d2b1f;
+            --light: #f8f8f8;
+            --text: #333;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: white;
+            padding: 40px 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Event Header */
+        .event-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .event-header .event-type {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .event-header h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .event-header .event-date {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Event Content */
+        .event-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .event-main img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-description h2 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin: 30px 0 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .event-description h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .event-description p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .event-description ul {
+            margin: 20px 0 20px 20px;
+            color: #555;
+        }
+
+        /* Event Sidebar */
+        .event-sidebar {
+            position: relative;
+        }
+
+        .event-details-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .detail-content h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .detail-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+            background: #a5825a;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-outline:active {
+            background: #a5825a;
+            border-color: #a5825a;
+        }
+
+        /* Event Gallery */
+        .event-gallery {
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .event-gallery h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .gallery-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-grid {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 20px;
+            padding-bottom: 10px; /* For scrollbar space */
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+            min-width: calc(50% - 10px);
+            flex-shrink: 0;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-nav {
+            display: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .gallery-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-nav.prev {
+            left: 15px;
+        }
+
+        .gallery-nav.next {
+            right: 15px;
+        }
+
+        .gallery-nav i {
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Similar Events */
+        .similar-events {
+            margin-top: 80px;
+        }
+
+        .similar-events h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .event-card-content {
+            padding: 20px;
+        }
+
+        .event-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .event-card .date {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .event-card .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            width: auto;
+        }
+
+        /* Modal for booking */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .event-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-details-card {
+                position: static;
+                margin-top: 40px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .gallery-item {
+                min-width: calc(33.333% - 14px);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .gallery-item {
+                min-width: calc(25% - 15px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .event-header h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery-item {
+                min-width: calc(100% - 0px);
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Event Header -->
+        <div class="event-header">
+            <span class="event-type">Wine Tasting Event</span>
+            <h1>Napa Valley Wine Pairing Dinner</h1>
+            <p class="event-date">June 15, 2023 • 7:00 PM</p>
+        </div>
+
+        <!-- Event Content -->
+        <div class="event-content">
+            <div class="event-main">
+                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Wine Pairing Dinner">
+                
+                <div class="event-description">
+                    <h2>About This Event</h2>
+                    <p>Join us for an exclusive five-course dinner expertly paired with selections from Napa Valley's finest vineyards. Our executive chef and visiting sommelier will guide you through each pairing, explaining how flavors complement and enhance each other.</p>
+                    
+                    <h2>Event Highlights</h2>
+                    <ul>
+                        <li>Five-course tasting menu featuring seasonal ingredients</li>
+                        <li>Five premium wine pairings from boutique Napa wineries</li>
+                        <li>Interactive discussion with our chef and sommelier</li>
+                        <li>Commemorative menu and tasting notes to take home</li>
+                        <li>Limited to just 24 guests for an intimate experience</li>
+                    </ul>
+                    
+                    <h2>Menu Preview</h2>
+                    <p><strong>First Course:</strong> Diver scallop crudo with yuzu kosho, paired with Chardonnay</p>
+                    <p><strong>Second Course:</strong> Wild mushroom risotto with black truffle, paired with Pinot Noir</p>
+                    <p><strong>Main Course:</strong> Dry-aged ribeye with bone marrow butter, paired with Cabernet Sauvignon</p>
+                    <p><strong>Cheese Course:</strong> Artisanal selections with honeycomb, paired with Zinfandel</p>
+                    <p><strong>Dessert:</strong> Dark chocolate torte with salted caramel, paired with Port</p>
+                    
+                    <h2>About Our Sommelier</h2>
+                    <p>We're honored to welcome Jessica Chen, award-winning sommelier from Napa's renowned Vineyard 29, who will be joining us exclusively for this event to share her expertise on these exceptional wines.</p>
+                </div>
+                
+                <div class="event-gallery">
+                    <h2>Gallery</h2>
+                    <div class="gallery-container">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wine Selection">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dining Setup">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Chef Preparing Food">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80" alt="Wine Pouring">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Wine Cellar">
+                            </div>
+                        </div>
+                        <div class="gallery-nav prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="gallery-nav next">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-dots">
+                        <div class="gallery-dot active"></div>
+                        <div class="gallery-dot"></div>
+                        <div class="gallery-dot"></div>
+                        <div class="gallery-dot"></div>
+                        <div class="gallery-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event Sidebar -->
+            <div class="event-sidebar">
+                <div class="event-details-card">
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="detail-content">
+                            <h3>Date & Time</h3>
+                            <p>June 15, 2023<br>7:00 PM - 10:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="detail-content">
+                            <h3>Location</h3>
+                            <p>Savory Bites Private Dining Room<br>123 Gourmet Avenue, NY</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <i class="fas fa-ticket-alt"></i>
+                        <div class="detail-content">
+                            <h3>Price</h3>
+                            <p>$125 per person<br><em>(includes all food, wine, and gratuity)</em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <i class="fas fa-user-friends"></i>
+                        <div class="detail-content">
+                            <h3>Seating</h3>
+                            <p>Limited to 24 guests<br>Communal tables of 6</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <i class="fas fa-utensils"></i>
+                        <div class="detail-content">
+                            <h3>Dress Code</h3>
+                            <p>Smart casual<br>No jeans or sneakers please</p>
+                        </div>
+                    </div>
+                    
+                    <button id="bookBtn" class="btn">Reserve Your Seat</button>
+                    <button id="contactBtn" class="btn btn-outline">Contact About Event</button>
+                    
+                    <div class="detail-item" style="margin-top: 25px;">
+                        <i class="fas fa-info-circle"></i>
+                        <div class="detail-content">
+                            <h3>Cancellation Policy</h3>
+                            <p>Full refund up to 48 hours before event. No refunds for cancellations within 48 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Similar Events -->
+        <div class="similar-events">
+            <h2>You May Also Like</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Jazz Night">
+                    <div class="event-card-content">
+                        <span class="date">Every Friday • 7:00 PM</span>
+                        <h3>Live Jazz Nights</h3>
+                        <a href="#" class="btn">View Event</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Chef's Table">
+                    <div class="event-card-content">
+                        <span class="date">July 5, 2023 • 6:30 PM</span>
+                        <h3>Chef's Table Experience</h3>
+                        <a href="#" class="btn">View Event</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Dessert Night">
+                    <div class="event-card-content">
+                        <span class="date">August 18, 2023 • 8:00 PM</span>
+                        <h3>Decadent Dessert Night</h3>
+                        <a href="#" class="btn">View Event</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Reserve Your Seat</h2>
+            <p>Complete the form below to reserve your spot for the Napa Valley Wine Pairing Dinner.</p>
+            <form id="bookingForm" style="margin-top: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <label for="name" style="display: block; margin-bottom: 5px; font-weight: 600;">Full Name</label>
+                    <input type="text" id="name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="email" style="display: block; margin-bottom: 5px; font-weight: 600;">Email</label>
+                    <input type="email" id="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="guests" style="display: block; margin-bottom: 5px; font-weight: 600;">Number of Guests</label>
+                    <select id="guests" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label for="notes" style="display: block; margin-bottom: 5px; font-weight: 600;">Special Requests</label>
+                    <textarea id="notes" rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                </div>
+                <button type="submit" class="btn">Complete Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Contact About Event</h2>
+            <p>Have questions about the Napa Valley Wine Pairing Dinner? Send us a message.</p>
+            <form id="contactForm" style="margin-top: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <label for="contactName" style="display: block; margin-bottom: 5px; font-weight: 600;">Your Name</label>
+                    <input type="text" id="contactName" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="contactEmail" style="display: block; margin-bottom: 5px; font-weight: 600;">Email</label>
+                    <input type="email" id="contactEmail" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="contactSubject" style="display: block; margin-bottom: 5px; font-weight: 600;">Subject</label>
+                    <input type="text" id="contactSubject" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label for="contactMessage" style="display: block; margin-bottom: 5px; font-weight: 600;">Message</label>
+                    <textarea id="contactMessage" rows="4" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for page elements
+        const animateElements = document.querySelectorAll('.event-header, .event-main > img, .event-description h2, .event-description p, .event-description ul, .gallery-grid, .detail-item');
+        
+        animateElements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 100 * index);
+        });
+
+        // Gallery Slider Functionality
+        const gallery = document.querySelector('.gallery-grid');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const prevBtn = document.querySelector('.gallery-nav.prev');
+        const nextBtn = document.querySelector('.gallery-nav.next');
+        const dots = document.querySelectorAll('.gallery-dot');
+        
+        let currentIndex = 0;
+        const itemWidth = galleryItems[0].offsetWidth + 20; // width + gap
+        const itemsPerView = Math.min(4, Math.floor(gallery.offsetWidth / itemWidth));
+        
+        function updateGallery() {
+            const translateX = -currentIndex * itemWidth;
+            gallery.style.transform = `translateX(${translateX}px)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+            
+            // Hide/show navigation buttons
+            prevBtn.style.display = currentIndex === 0 ? 'none' : 'flex';
+            nextBtn.style.display = currentIndex >= galleryItems.length - itemsPerView ? 'none' : 'flex';
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateGallery();
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < galleryItems.length - itemsPerView) {
+                currentIndex++;
+                updateGallery();
+            }
+        });
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateGallery();
+            });
+        });
+        
+        // Initialize gallery
+        updateGallery();
+        
+        // Modal functionality
+        const bookingModal = document.getElementById('bookingModal');
+        const contactModal = document.getElementById('contactModal');
+        const bookBtn = document.getElementById('bookBtn');
+        const contactBtn = document.getElementById('contactBtn');
+        const closeButtons = document.querySelectorAll('.close-modal');
+        
+        bookBtn.addEventListener('click', () => {
+            bookingModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        contactBtn.addEventListener('click', () => {
+            contactModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                bookingModal.style.display = 'none';
+                contactModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                bookingModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            if (e.target === contactModal) {
+                contactModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your reservation! We will send confirmation details to your email shortly.');
+            bookingModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            contactModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Responsive adjustments
+        window.addEventListener('resize', () => {
+            updateGallery();
+        });
+    </script>
+</body>
+</html>

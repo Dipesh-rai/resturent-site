@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery | Savory Bites</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern Video Gallery Styling */
+        :root {
+            --primary: #c19a6b;
+            --dark: #3d2b1f;
+            --light: #f8f8f8;
+            --text: #333;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Video Header */
+        .video-header {
+            text-align: center;
+            padding: 80px 0 60px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .video-header h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .video-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Video Filter */
+        .video-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .video-filter button {
+            background: none;
+            border: none;
+            padding: 10px 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: var(--text);
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
+        .video-filter button.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .video-filter button:hover {
+            color: var(--primary);
+        }
+
+        /* Video Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .video-card:hover .video-thumbnail img {
+            opacity: 0.6;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .video-card:hover .play-button {
+            background-color: var(--primary);
+            color: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-info {
+            padding: 20px;
+            background: white;
+        }
+
+        .video-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .video-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* Video Modal */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .video-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-title {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            color: white;
+            font-size: 1.2rem;
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-header h1 {
+                font-size: 2rem;
+            }
+            
+            .video-filter button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .play-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Header -->
+    <header class="video-header">
+        <div class="container">
+            <h1>Video Gallery</h1>
+            <p>Experience the sights, sounds, and flavors of Savory Bites through our video collection</p>
+        </div>
+    </header>
+
+    <!-- Video Filter -->
+    <div class="container">
+        <nav class="video-filter">
+            <button class="active" data-filter="all">All Videos</button>
+            <button data-filter="food">Food Stories</button>
+            <button data-filter="events">Events</button>
+            <button data-filter="chef">Chef's Table</button>
+            <button data-filter="behind">Behind Scenes</button>
+        </nav>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="container">
+        <div class="video-grid">
+            <!-- Food Story Videos -->
+            <div class="video-card" data-category="food">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Farm to Table">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-duration">3:42</div>
+                </div>
+                <div class="video-info">
+                    <h3>Farm to Table Journey</h3>
+                    <p>Follow our ingredients from local farms to your plate</p>
+                </div>
+                <div class="video-source" data-video-id="j5-yKhDd64s"></div>
+            </div>
+
+            <div class="video-card" data-category="food">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80" alt="Signature Dishes">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-duration">2:15</div>
+                </div>
+                <div class="video-info">
+                    <h3>Signature Dishes</h3>
+                    <p>See how we prepare our award-winning filet mignon</p>
+                </div>
+                <div class="video-source" data-video-id="s9iPo9YMU2g"></div>
+            </div>
+
+            <!-- Event Videos -->
+            <div class="video-card" data-category="events">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Wine Pairing">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-duration">4:30</div>
+                </div>
+                <div class="video-info">
+                    <h3>Wine Pairing Dinner</h3>
+                    <p>Highlights from our monthly wine tasting event</p>
+                </div>
+                <div class="video-source" data-video-id="r6bn9UMcF3M"></div>
+            </div>
+
+            <div class="video-card" data-category="events">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Jazz Night">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-duration">2:58</div>
+                </div>
+                <div class="video-info">
+                    <h3>Friday Jazz Nights</h3>
+                    <p>Experience our live music evenings</p>
+                </div>
+                <div class="video-source" data-video-id="t7kFQp4Dw4E"></div>
+            </div>
+
+            <!-- Chef's Table Videos -->
+            <div class="video-card" data-category="chef">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Chef's Story">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-duration">5:22</div>
+                </div>
+                <div class="video-info">
+                    <h3>Meet Our Chef</h3>
+                    <p>Chef Michael Richardson shares his culinary journey</p>
+                </div>
+                <div class="video-source" data-video-id="v8k7x5U0L8w"></div>
+            </div>
+
+            <div class="video-card" data-category="chef">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cooking Demo">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-duration">6:15</div>
+                </div>
+                <div class="video-info">
+                    <h3>Chef's Table Experience</h3>
+                    <p>Watch our chef prepare a personalized tasting menu</p>
+                </div>
+                <div class="video-source" data-video-id="p9Qa_kDz_pI"></div>
+            </div>
+
+            <!-- Behind the Scenes Videos -->
+            <div class="video-card" data-category="behind">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Kitchen Tour">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-duration">3:10</div>
+                </div>
+                <div class="video-info">
+                    <h3>Kitchen Tour</h3>
+                    <p>An exclusive look at where the magic happens</p>
+                </div>
+                <div class="video-source" data-video-id="k5y3V5Z0u4Y"></div>
+            </div>
+
+            <div class="video-card" data-category="behind">
+                <div class="video-thumbnail">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Local Farmers">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="video-duration">4:45</div>
+                </div>
+                <div class="video-info">
+                    <h3>Meet Our Farmers</h3>
+                    <p>Visiting the local producers who supply our ingredients</p>
+                </div>
+                <div class="video-source" data-video-id="m3n7Xq2o9vE"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-title"></div>
+        </div>
+    </div>
+
+    <script>
+        // Video Filter
+        const filterButtons = document.querySelectorAll('.video-filter button');
+        const videoCards = document.querySelectorAll('.video-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+
+                // Filter videos
+                videoCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Video Modal
+        const videoModal = document.querySelector('.video-modal');
+        const modalIframe = document.querySelector('.video-modal iframe');
+        const modalTitle = document.querySelector('.video-title');
+        const closeModal = document.querySelector('.close-modal');
+        const playButtons = document.querySelectorAll('.play-button');
+
+        // Open modal with video
+        playButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const videoCard = button.closest('.video-card');
+                const videoId = videoCard.querySelector('.video-source').dataset.videoId;
+                const videoTitle = videoCard.querySelector('h3').textContent;
+                
+                modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                modalTitle.textContent = videoTitle;
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modalIframe.src = '';
+            videoModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close when clicking outside
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                modalIframe.src = '';
+                videoModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                modalIframe.src = '';
+                videoModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Lazy load video thumbnails
+        const lazyLoad = (target) => {
+            const io = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.getAttribute('data-src');
+                        
+                        if (src) {
+                            img.setAttribute('src', src);
+                            img.classList.add('fade-in');
+                        }
+                        
+                        observer.disconnect();
+                    }
+                });
+            });
+            
+            io.observe(target);
+        };
+
+        document.querySelectorAll('.video-thumbnail img').forEach(lazyLoad);
+    </script>
+</body>
+</html>

@@ -200,103 +200,6 @@
             font-size: 1.05rem;
         }
 
-        /* Categories */
-        .blog-categories {
-            margin-bottom: 50px;
-        }
-
-        .blog-categories h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .blog-categories h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--secondary);
-        }
-
-        .categories-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .category-tag {
-            display: inline-block;
-            padding: 8px 15px;
-            background: var(--light);
-            color: var(--text);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .category-tag:hover {
-            background: var(--secondary);
-            color: white;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background: var(--light);
-            padding: 40px;
-            border-radius: 6px;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .newsletter h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .newsletter p {
-            color: var(--text-light);
-            max-width: 500px;
-            margin: 0 auto 25px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 1px solid var(--border);
-            border-radius: 4px 0 0 4px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        .newsletter-form button {
-            padding: 12px 20px;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 0 4px 4px 0;
-            font-family: inherit;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .newsletter-form button:hover {
-            background: var(--primary);
-        }
-
         /* Responsive */
         @media (max-width: 900px) {
             .featured-post {
@@ -312,20 +215,7 @@
             .blog-intro h1 {
                 font-size: 2rem;
             }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .newsletter-form input,
-            .newsletter-form button {
-                width: 100%;
-                border-radius: 4px;
-            }
-            
-            .newsletter-form button {
-                margin-top: 10px;
-            }
+        
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -447,35 +337,13 @@
             </article>
         </div>
 
-        <!-- Categories -->
-        <div class="blog-categories">
-            <h3>Explore Categories</h3>
-            <div class="categories-list">
-                <a href="#" class="category-tag">Recipes</a>
-                <a href="#" class="category-tag">Wine</a>
-                <a href="#" class="category-tag">Techniques</a>
-                <a href="#" class="category-tag">Ingredients</a>
-                <a href="#" class="category-tag">Dining</a>
-                <a href="#" class="category-tag">Mixology</a>
-                <a href="#" class="category-tag">Equipment</a>
-                <a href="#" class="category-tag">Chef's Tips</a>
-            </div>
-        </div>
 
-        <!-- Newsletter -->
-        <div class="newsletter">
-            <h3>Subscribe to Our Newsletter</h3>
-            <p>Get the latest recipes, cooking tips, and restaurant news delivered straight to your inbox.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
+      
     </div>
 
     <script>
         // Simple animations
-        const animateElements = document.querySelectorAll('.blog-card, .featured-post, .blog-categories, .newsletter');
+        const animateElements = document.querySelectorAll('.blog-card, .featured-post, .blog-categories,');
         
         animateElements.forEach((el, index) => {
             el.style.opacity = '0';
@@ -488,12 +356,7 @@
             }, 100 * index);
         });
 
-        // Newsletter form submission
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for subscribing to our newsletter!');
-            this.reset();
-        });
+ 
     </script>
 </body>
 </html>

@@ -1,49 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu | Savory Bites</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Modern & Clean Styling */
-        :root {
-            --primary: #c19a6b;
-            --dark: #3d2b1f;
-            --light: #f8f8f8;
-            --text: #333;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Playfair Display', serif;
-            color: var(--text);
-            line-height: 1.6;
-            background-color: white;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Menu Header */
-        .menu-header {
-            text-align: center;
-            padding: 60px 0 40px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
-            color: white;
-            margin-bottom: 40px;
-        }
-
         .menu-header h1 {
             font-size: 3.5rem;
             font-weight: 300;
@@ -236,15 +200,15 @@
             .menu-header h1 {
                 font-size: 2.5rem;
             }
-            
+
             .menu-items {
                 grid-template-columns: 1fr;
             }
-            
+
             .menu-item {
                 flex-direction: column;
             }
-            
+
             .menu-item-img {
                 width: 100%;
                 height: 200px;
@@ -255,21 +219,63 @@
             .menu-header h1 {
                 font-size: 2rem;
             }
-            
+
             .section-title h2 {
                 font-size: 1.8rem;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- Menu Header -->
-    <header class="menu-header">
+    <!-- Top Bar with Contact Info -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <div class="contact-info">
+                <a href="tel:+15551234567"><i class="fas fa-phone"></i> (555) 123-4567</a>
+                <a href="mailto:info@savorybites.com"><i class="fas fa-envelope"></i> info@savorybites.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> 123 Gourmet Ave, NY</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
         <div class="container">
-            <h1>Our Menu</h1>
-            <p>Seasonal ingredients crafted with passion. Menus change weekly based on fresh local availability.</p>
+            <nav class="navbar">
+                <a href="index.html" class="logo">Savory Bites</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li class="btn"><a href="reservation.html">Reservation</a></li>
+                </ul>
+               
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
+    <!-- Hero Section -->
+    <section class="about-hero"
+        style="background: url(https://images.unsplash.com/photo-1732638523685-41d2d7f611e8?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Culinary Journey</h1>
+                <p>Founded in 2005, Savory Bites redefines fine dining through passion, innovation, and locally-sourced
+                    excellence.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Menu Navigation -->
     <div class="container">
@@ -291,13 +297,15 @@
             <div class="menu-items">
                 <!-- Item 1 -->
                 <div class="menu-item" data-category="starters">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Tomato Bruschetta" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                        alt="Tomato Bruschetta" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Tomato Bruschetta</h3>
                             <span class="price">$9.50</span>
                         </div>
-                        <p class="menu-item-desc">Heirloom tomatoes, fresh basil, garlic, and extra virgin olive oil on toasted ciabatta</p>
+                        <p class="menu-item-desc">Heirloom tomatoes, fresh basil, garlic, and extra virgin olive oil on
+                            toasted ciabatta</p>
                         <div class="menu-item-tags">
                             <span class="tag">Seasonal</span>
                             <span class="tag">Vegetarian</span>
@@ -311,13 +319,15 @@
 
                 <!-- Item 2 -->
                 <div class="menu-item" data-category="starters">
-                    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Crispy Calamari" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Crispy Calamari" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Crispy Calamari</h3>
                             <span class="price">$12.00</span>
                         </div>
-                        <p class="menu-item-desc">Tender squid lightly fried, served with lemon aioli and spicy marinara</p>
+                        <p class="menu-item-desc">Tender squid lightly fried, served with lemon aioli and spicy marinara
+                        </p>
                         <div class="menu-item-tags">
                             <span class="tag">Chef's Pick</span>
                         </div>
@@ -326,13 +336,15 @@
 
                 <!-- Item 3 -->
                 <div class="menu-item" data-category="starters">
-                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Harvest Salad" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Harvest Salad" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Harvest Salad</h3>
                             <span class="price">$10.50</span>
                         </div>
-                        <p class="menu-item-desc">Mixed greens, roasted squash, goat cheese, candied pecans, balsamic vinaigrette</p>
+                        <p class="menu-item-desc">Mixed greens, roasted squash, goat cheese, candied pecans, balsamic
+                            vinaigrette</p>
                         <div class="menu-item-tags">
                             <span class="tag">Vegan Option</span>
                         </div>
@@ -355,13 +367,15 @@
             <div class="menu-items">
                 <!-- Item 1 -->
                 <div class="menu-item" data-category="mains">
-                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80" alt="Filet Mignon" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80"
+                        alt="Filet Mignon" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Filet Mignon</h3>
                             <span class="price">$32.00</span>
                         </div>
-                        <p class="menu-item-desc">8oz grass-fed beef tenderloin, truffle mashed potatoes, seasonal vegetables, red wine reduction</p>
+                        <p class="menu-item-desc">8oz grass-fed beef tenderloin, truffle mashed potatoes, seasonal
+                            vegetables, red wine reduction</p>
                         <div class="menu-item-tags">
                             <span class="tag">Signature Dish</span>
                         </div>
@@ -370,7 +384,8 @@
 
                 <!-- Item 2 -->
                 <div class="menu-item" data-category="mains">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80" alt="Pan-Seared Salmon" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80"
+                        alt="Pan-Seared Salmon" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Pan-Seared Salmon</h3>
@@ -389,13 +404,15 @@
 
                 <!-- Item 3 -->
                 <div class="menu-item" data-category="mains">
-                    <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Truffle Mushroom Pasta" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Truffle Mushroom Pasta" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Truffle Mushroom Pasta</h3>
                             <span class="price">$22.00</span>
                         </div>
-                        <p class="menu-item-desc">House-made fettuccine, wild mushrooms, truffle oil, parmesan cream sauce</p>
+                        <p class="menu-item-desc">House-made fettuccine, wild mushrooms, truffle oil, parmesan cream
+                            sauce</p>
                         <div class="menu-item-tags">
                             <span class="tag">Vegetarian</span>
                         </div>
@@ -417,13 +434,15 @@
             <div class="menu-items">
                 <!-- Item 1 -->
                 <div class="menu-item" data-category="desserts">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Chocolate Lava Cake" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80"
+                        alt="Chocolate Lava Cake" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Chocolate Lava Cake</h3>
                             <span class="price">$9.00</span>
                         </div>
-                        <p class="menu-item-desc">Warm chocolate cake with molten center, vanilla bean ice cream, raspberry coulis</p>
+                        <p class="menu-item-desc">Warm chocolate cake with molten center, vanilla bean ice cream,
+                            raspberry coulis</p>
                         <div class="menu-item-tags">
                             <span class="tag">Signature</span>
                         </div>
@@ -432,7 +451,8 @@
 
                 <!-- Item 2 -->
                 <div class="menu-item" data-category="desserts">
-                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="New York Cheesecake" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="New York Cheesecake" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>New York Cheesecake</h3>
@@ -450,13 +470,15 @@
 
                 <!-- Item 3 -->
                 <div class="menu-item" data-category="desserts">
-                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80" alt="Vanilla Crème Brûlée" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80"
+                        alt="Vanilla Crème Brûlée" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Vanilla Crème Brûlée</h3>
                             <span class="price">$8.00</span>
                         </div>
-                        <p class="menu-item-desc">Classic vanilla custard with caramelized sugar crust, seasonal berries</p>
+                        <p class="menu-item-desc">Classic vanilla custard with caramelized sugar crust, seasonal berries
+                        </p>
                         <div class="menu-item-tags">
                             <span class="tag">Gluten Free</span>
                         </div>
@@ -473,8 +495,11 @@
     <section class="special-section">
         <div class="container">
             <h2>Seasonal Specials</h2>
-            <p>Ask your server about our daily specials featuring fresh, locally-sourced ingredients that change with the seasons.</p>
-            <button style="background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; cursor: pointer;">View Current Specials</button>
+            <p>Ask your server about our daily specials featuring fresh, locally-sourced ingredients that change with
+                the seasons.</p>
+            <button
+                style="background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 30px; font-weight: 600; cursor: pointer;">View
+                Current Specials</button>
         </div>
     </section>
 
@@ -487,13 +512,15 @@
             <div class="menu-items">
                 <!-- Item 1 -->
                 <div class="menu-item" data-category="drinks">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="House Wine Selection" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="House Wine Selection" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>House Wine Selection</h3>
                             <span class="price">$8-12/glass</span>
                         </div>
-                        <p class="menu-item-desc">Rotating selection of red, white, and rosé wines from local vineyards</p>
+                        <p class="menu-item-desc">Rotating selection of red, white, and rosé wines from local vineyards
+                        </p>
                         <div class="menu-item-tags">
                             <span class="tag">Local</span>
                         </div>
@@ -502,13 +529,15 @@
 
                 <!-- Item 2 -->
                 <div class="menu-item" data-category="drinks">
-                    <img src="https://images.unsplash.com/photo-1600271886742-f049cd5bba54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Signature Cocktails" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1600271886742-f049cd5bba54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Signature Cocktails" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Signature Cocktails</h3>
                             <span class="price">$12.00</span>
                         </div>
-                        <p class="menu-item-desc">Seasonal craft cocktails made with premium spirits and fresh ingredients</p>
+                        <p class="menu-item-desc">Seasonal craft cocktails made with premium spirits and fresh
+                            ingredients</p>
                         <div class="menu-item-tags">
                             <span class="tag">Seasonal</span>
                             <span class="tag">House Special</span>
@@ -518,13 +547,15 @@
 
                 <!-- Item 3 -->
                 <div class="menu-item" data-category="drinks">
-                    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Artisan Coffee" class="menu-item-img">
+                    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Artisan Coffee" class="menu-item-img">
                     <div class="menu-item-content">
                         <div class="menu-item-title">
                             <h3>Artisan Coffee</h3>
                             <span class="price">$4.50-6.00</span>
                         </div>
-                        <p class="menu-item-desc">Locally roasted coffee served as espresso, cappuccino, or pour-over</p>
+                        <p class="menu-item-desc">Locally roasted coffee served as espresso, cappuccino, or pour-over
+                        </p>
                         <div class="menu-item-tags">
                             <span class="tag">Local Roaster</span>
                         </div>
@@ -534,6 +565,62 @@
         </div>
     </section>
 
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Savory Bites</h3>
+                    <p>Experience culinary excellence in the heart of the city. Our restaurant offers an unforgettable
+                        dining experience with locally sourced ingredients and innovative flavors.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-yelp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#video">Video</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#reservation">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>123 Gourmet Avenue<br>Foodie District, NY 10001</p>
+                    <p>Phone: (555) 123-4567<br>Email: info@savorybites.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on special events, seasonal menus, and exclusive offers.
+                    </p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" class="inputform" required>
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Savory Bites. All Rights Reserved. | Designed with passion for great food</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="js/main.js"></script>
     <script>
         // Menu Filtering
         const filterButtons = document.querySelectorAll('.menu-nav button');
@@ -583,4 +670,5 @@
         });
     </script>
 </body>
+
 </html>

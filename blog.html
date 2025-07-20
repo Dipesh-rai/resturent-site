@@ -5,38 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savory Bites Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Professional Color Scheme */
-        :root {
-            --primary: #333333; /* Dark gray */
-            --secondary: #8B5A2B; /* Rich brown */
-            --light: #F8F8F8;
-            --text: #333333;
-            --text-light: #777777;
-            --border: #eaeaea;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lora', serif;
-            color: var(--text);
-            line-height: 1.6;
-            background-color: white;
-            padding: 40px 0;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
         /* Blog Header */
         .blog-intro {
             text-align: center;
@@ -49,11 +19,11 @@
             font-size: 2.5rem;
             font-weight: 500;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var( --primary-color);
         }
 
         .blog-intro p {
-            color: var(--text-light);
+            color: var(--text-color);
             max-width: 600px;
             margin: 0 auto;
             font-size: 1.1rem;
@@ -105,7 +75,7 @@
             align-items: center;
             margin-bottom: 15px;
             font-size: 0.85rem;
-            color: var(--text-light);
+            color: var(--text-color);
         }
 
         .blog-card-meta span {
@@ -117,7 +87,7 @@
         .blog-card-meta i {
             margin-right: 5px;
             font-size: 0.9rem;
-            color: var(--secondary);
+            color: var(--secondary-color);
         }
 
         .blog-card h2 {
@@ -128,7 +98,7 @@
         }
 
         .blog-card p {
-            color: var(--text-light);
+            color: var(--text-color);
             margin-bottom: 20px;
             font-size: 0.95rem;
         }
@@ -136,7 +106,7 @@
         .read-more {
             display: inline-flex;
             align-items: center;
-            color: var(--secondary);
+            color: var(--secondary-color);
             font-weight: 500;
             font-size: 0.9rem;
             text-decoration: none;
@@ -149,7 +119,7 @@
         }
 
         .read-more:hover {
-            color: var(--primary);
+            color: var(--primary-color);
         }
 
         .read-more:hover i {
@@ -195,7 +165,7 @@
         }
 
         .featured-post p {
-            color: var(--text-light);
+            color: var(--text-color);
             margin-bottom: 25px;
             font-size: 1.05rem;
         }
@@ -221,6 +191,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+   <!-- Top Bar with Contact Info -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <div class="contact-info">
+                <a href="tel:+15551234567"><i class="fas fa-phone"></i> (555) 123-4567</a>
+                <a href="mailto:info@savorybites.com"><i class="fas fa-envelope"></i> info@savorybites.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> 123 Gourmet Ave, NY</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Savory Bites</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li class="btn"><a href="reservation.html">Reservation</a></li>
+                </ul>
+               
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+     <!-- Hero Section -->
+    <section class="about-hero"
+        style="background: url(https://images.unsplash.com/photo-1732638523685-41d2d7f611e8?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Culinary Journey</h1>
+                <p>Founded in 2005, Savory Bites redefines fine dining through passion, innovation, and locally-sourced
+                    excellence.</p>
+            </div>
+        </div>
+    </section>
+
     <div class="container">
         <!-- Blog Intro -->
         <div class="blog-intro">
@@ -340,7 +360,59 @@
 
       
     </div>
+<!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Savory Bites</h3>
+                    <p>Experience culinary excellence in the heart of the city. Our restaurant offers an unforgettable dining experience with locally sourced ingredients and innovative flavors.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-yelp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#video">Video</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#reservation">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>123 Gourmet Avenue<br>Foodie District, NY 10001</p>
+                    <p>Phone: (555) 123-4567<br>Email: info@savorybites.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on special events, seasonal menus, and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" class="inputform" required>
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Savory Bites. All Rights Reserved. | Designed with passion for great food</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+  <script src="js/main.js"></script>
     <script>
         // Simple animations
         const animateElements = document.querySelectorAll('.blog-card, .featured-post, .blog-categories,');

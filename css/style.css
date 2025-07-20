@@ -6,7 +6,9 @@
     --light-color: #f8f8f8;
     --dark-color: #222;
     --text-color: #333;
+    --text-light: #777777;
     --transition: all 0.3s ease;
+     --border: #eaeaea;
 }
 
 * {
@@ -21,7 +23,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
-    background-color:rgb(248, 243, 243) !important;
+    background-color:#F5F5F5 !important;
 }
 
 h1,
@@ -45,13 +47,6 @@ ul {
 img {
     max-width: 100%;
     height: auto;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
 }
 
 .margin{
@@ -323,6 +318,8 @@ header.scrolled .logo {
 
 .nav-links {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-links li {
@@ -336,23 +333,16 @@ header.scrolled .logo {
 }
 
 header.scrolled .nav-links a {
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
+}
+header.scrolled .nav-links a:hover {
+    color: var(--primary-color) !important;
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    bottom: -5px;
-    left: 0;
-    transition: var(--transition);
+.nav-links a:hover {
+    color: var(--primary-color);
 }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
 
 .hamburger {
     display: none;
@@ -570,7 +560,6 @@ header.scrolled .nav-links a {
 /* Events Section */
 .evnt{
     margin:50px 0;
-    padding:100px 0;
 }
 .events {
     background-color: var(--light-color);
@@ -615,7 +604,7 @@ header.scrolled .nav-links a {
     padding: 20px;
 }
 
-.event-date {
+.event-date2 {
     display: inline-block;
     background-color: var(--primary-color);
     color: white;
@@ -699,7 +688,7 @@ header.scrolled .nav-links a {
     position: absolute;
     top: 20px;
     left: 20px;
-    background: var(--primary);
+    background: var(--primary-color);
     color: white;
     padding: 8px 15px;
     border-radius: 20px;
@@ -723,7 +712,7 @@ header.scrolled .nav-links a {
 }
 
 .event-meta i {
-    color: var(--primary);
+    color: var(--primary-color);
 }
 
 
@@ -779,7 +768,7 @@ header.scrolled .nav-links a {
 
 .private-events h2 {
     font-size: 2rem;
-    color: var(--dark);
+    color: var(--dark-color);
     margin-bottom: 20px;
     font-weight: 300;
 }
@@ -864,58 +853,6 @@ header.scrolled .nav-links a {
 
 .blog-card:hover .read-more i {
     transform: translateX(5px);
-}
-
-/* Gallery Section */
-.gallery {
-    background-color: white;
-}
-
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    height: 250px;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-overlay i {
-    color: white;
-    font-size: 2rem;
 }
 
 

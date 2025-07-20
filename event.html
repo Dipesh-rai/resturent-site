@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <!-- Top Bar with Contact Info -->
@@ -23,7 +25,7 @@
                 <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-    </div>          
+    </div>
 
     <!-- Header & Navigation -->
     <header id="header">
@@ -33,15 +35,13 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="menu.html">Menu</a></li>
                     <li><a href="event.html">Events</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#hours-location">Hours</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li class="btn"><a href="reservation.html">Reservation</a></li>
                 </ul>
-                <div class="nav-links">
-                <a href="" class="btn"> Reservation</a>
-</div>
+               
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -49,7 +49,7 @@
         </div>
     </header>
 
- <!-- Hero Section -->
+    <!-- Hero Section -->
     <section class="about-hero"
         style="background: url(https://images.unsplash.com/photo-1732638523685-41d2d7f611e8?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
         <div class="container">
@@ -61,146 +61,162 @@
         </div>
     </section>
 
-<section class="evnt">
-    <div class="container">
-        <!-- Page Title -->
-        <div class="page-title">
-            <h1>Upcoming Events</h1>
-            <p>Join us for unforgettable dining experiences, live music, and special celebrations</p>
+    <section class="evnt">
+        <div class="container">
+            <!-- Page Title -->
+            <div class="page-title">
+                <h1>Upcoming Events</h1>
+                <p>Join us for unforgettable dining experiences, live music, and special celebrations</p>
+            </div>
+
+            <!-- Special Event Highlight -->
+            <div class="special-event">
+                <div class="special-event-content">
+                    <span class="event-date">June 15, 2023</span>
+                    <h2>Wine Pairing Dinner</h2>
+                    <p>An exclusive five-course menu expertly paired with selections from Napa Valley's finest
+                        vineyards. Limited seating available for this intimate evening with our sommelier and executive
+                        chef.</p>
+                    <a href="#reserve" class="btn">Reserve Your Seat</a>
+                </div>
+            </div>
+
+            <!-- Events Grid -->
+            <div class="events-grid">
+                <!-- Event 1 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Jazz Night">
+                        <span class="event-date">Every Friday</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Live Jazz Nights</h3>
+                        <p>Enjoy an evening of smooth jazz while savoring our chef's special small plates and craft
+                            cocktails.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 7:00 PM - 10:00 PM</span>
+                            <span><i class="fas fa-dollar-sign"></i> No cover charge</span>
+                        </div>
+                        <a href="#reserve" class="btn">Reserve Table</a>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Chef's Table">
+                        <span class="event-date">July 5, 2023</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Chef's Table Experience</h3>
+                        <p>An intimate dining experience where our executive chef prepares a personalized menu just for
+                            your table.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 6:30 PM seating</span>
+                            <span><i class="fas fa-dollar-sign"></i> $95 per person</span>
+                        </div>
+                        <a href="#reserve" class="btn">Book Experience</a>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Cooking Class">
+                        <span class="event-date">July 12, 2023</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Pasta Making Class</h3>
+                        <p>Learn the art of handmade pasta from our executive chef, followed by a family-style dinner
+                            with wine.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 4:00 PM - 7:00 PM</span>
+                            <span><i class="fas fa-dollar-sign"></i> $75 per person</span>
+                        </div>
+                        <a href="#reserve" class="btn">Join Class</a>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            alt="Anniversary">
+                        <span class="event-date">August 10, 2023</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>5th Anniversary Celebration</h3>
+                        <p>Join us as we celebrate 5 years of Savory Bites with special menus, live music, and champagne
+                            toast.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 5:00 PM - 11:00 PM</span>
+                            <span><i class="fas fa-dollar-sign"></i> Free admission</span>
+                        </div>
+                        <a href="#reserve" class="btn">RSVP Now</a>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            alt="Dessert Night">
+                        <span class="event-date">August 18, 2023</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Decadent Dessert Night</h3>
+                        <p>An evening dedicated to sweet creations from our pastry chef, paired with dessert wines and
+                            coffee.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 8:00 PM - 10:00 PM</span>
+                            <span><i class="fas fa-dollar-sign"></i> $45 per person</span>
+                        </div>
+                        <a href="#reserve" class="btn">Book Tickets</a>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            alt="Seafood Night">
+                        <span class="event-date">September 2, 2023</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Coastal Seafood Night</h3>
+                        <p>Fresh catches from both coasts prepared with seasonal ingredients and paired with crisp
+                            whites.</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 6:00 PM - 10:00 PM</span>
+                            <span><i class="fas fa-dollar-sign"></i> Market price</span>
+                        </div>
+                        <a href="#reserve" class="btn">Reserve Table</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Private Events Section -->
+            <div class="private-events">
+                <h2>Host Your Private Event</h2>
+                <p>From intimate gatherings to large celebrations, our private dining room and full restaurant buyouts
+                    create unforgettable experiences.</p>
+                <a href="#contact" class="btn">Inquire About Private Events</a>
+            </div>
         </div>
+    </section>
 
-        <!-- Special Event Highlight -->
-        <div class="special-event">
-            <div class="special-event-content">
-                <span class="event-date">June 15, 2023</span>
-                <h2>Wine Pairing Dinner</h2>
-                <p>An exclusive five-course menu expertly paired with selections from Napa Valley's finest vineyards. Limited seating available for this intimate evening with our sommelier and executive chef.</p>
-                <a href="#reserve" class="btn">Reserve Your Seat</a>
-            </div>
-        </div>
 
-        <!-- Events Grid -->
-        <div class="events-grid">
-            <!-- Event 1 -->
-            <div class="event-card">
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Jazz Night">
-                    <span class="event-date">Every Friday</span>
-                </div>
-                <div class="event-content">
-                    <h3>Live Jazz Nights</h3>
-                    <p>Enjoy an evening of smooth jazz while savoring our chef's special small plates and craft cocktails.</p>
-                    <div class="event-meta">
-                        <span><i class="fas fa-clock"></i> 7:00 PM - 10:00 PM</span>
-                        <span><i class="fas fa-dollar-sign"></i> No cover charge</span>
-                    </div>
-                    <a href="#reserve" class="btn">Reserve Table</a>
-                </div>
-            </div>
-
-            <!-- Event 2 -->
-            <div class="event-card">
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Chef's Table">
-                    <span class="event-date">July 5, 2023</span>
-                </div>
-                <div class="event-content">
-                    <h3>Chef's Table Experience</h3>
-                    <p>An intimate dining experience where our executive chef prepares a personalized menu just for your table.</p>
-                    <div class="event-meta">
-                        <span><i class="fas fa-clock"></i> 6:30 PM seating</span>
-                        <span><i class="fas fa-dollar-sign"></i> $95 per person</span>
-                    </div>
-                    <a href="#reserve" class="btn">Book Experience</a>
-                </div>
-            </div>
-
-            <!-- Event 3 -->
-            <div class="event-card">
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cooking Class">
-                    <span class="event-date">July 12, 2023</span>
-                </div>
-                <div class="event-content">
-                    <h3>Pasta Making Class</h3>
-                    <p>Learn the art of handmade pasta from our executive chef, followed by a family-style dinner with wine.</p>
-                    <div class="event-meta">
-                        <span><i class="fas fa-clock"></i> 4:00 PM - 7:00 PM</span>
-                        <span><i class="fas fa-dollar-sign"></i> $75 per person</span>
-                    </div>
-                    <a href="#reserve" class="btn">Join Class</a>
-                </div>
-            </div>
-
-            <!-- Event 4 -->
-            <div class="event-card">
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Anniversary">
-                    <span class="event-date">August 10, 2023</span>
-                </div>
-                <div class="event-content">
-                    <h3>5th Anniversary Celebration</h3>
-                    <p>Join us as we celebrate 5 years of Savory Bites with special menus, live music, and champagne toast.</p>
-                    <div class="event-meta">
-                        <span><i class="fas fa-clock"></i> 5:00 PM - 11:00 PM</span>
-                        <span><i class="fas fa-dollar-sign"></i> Free admission</span>
-                    </div>
-                    <a href="#reserve" class="btn">RSVP Now</a>
-                </div>
-            </div>
-
-            <!-- Event 5 -->
-            <div class="event-card">
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Dessert Night">
-                    <span class="event-date">August 18, 2023</span>
-                </div>
-                <div class="event-content">
-                    <h3>Decadent Dessert Night</h3>
-                    <p>An evening dedicated to sweet creations from our pastry chef, paired with dessert wines and coffee.</p>
-                    <div class="event-meta">
-                        <span><i class="fas fa-clock"></i> 8:00 PM - 10:00 PM</span>
-                        <span><i class="fas fa-dollar-sign"></i> $45 per person</span>
-                    </div>
-                    <a href="#reserve" class="btn">Book Tickets</a>
-                </div>
-            </div>
-
-            <!-- Event 6 -->
-            <div class="event-card">
-                <div class="event-image">
-                    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Seafood Night">
-                    <span class="event-date">September 2, 2023</span>
-                </div>
-                <div class="event-content">
-                    <h3>Coastal Seafood Night</h3>
-                    <p>Fresh catches from both coasts prepared with seasonal ingredients and paired with crisp whites.</p>
-                    <div class="event-meta">
-                        <span><i class="fas fa-clock"></i> 6:00 PM - 10:00 PM</span>
-                        <span><i class="fas fa-dollar-sign"></i> Market price</span>
-                    </div>
-                    <a href="#reserve" class="btn">Reserve Table</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Private Events Section -->
-        <div class="private-events">
-            <h2>Host Your Private Event</h2>
-            <p>From intimate gatherings to large celebrations, our private dining room and full restaurant buyouts create unforgettable experiences.</p>
-            <a href="#contact" class="btn">Inquire About Private Events</a>
-        </div>
-    </div>
-</section>
-
-    
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
                     <h3>Savory Bites</h3>
-                    <p>Experience culinary excellence in the heart of the city. Our restaurant offers an unforgettable dining experience with locally sourced ingredients and innovative flavors.</p>
+                    <p>Experience culinary excellence in the heart of the city. Our restaurant offers an unforgettable
+                        dining experience with locally sourced ingredients and innovative flavors.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -228,7 +244,8 @@
                 </div>
                 <div class="footer-col">
                     <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter for updates on special events, seasonal menus, and exclusive offers.</p>
+                    <p>Subscribe to our newsletter for updates on special events, seasonal menus, and exclusive offers.
+                    </p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="Your Email Address" class="inputform" required>
                         <button type="submit" class="newsletter-button">Subscribe</button>
@@ -246,14 +263,14 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
     <script>
         // Simple animation for event cards
         document.querySelectorAll('.event-card').forEach((card, index) => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            
+
             setTimeout(() => {
                 card.style.opacity = '1';
                 card.style.transform = 'translateY(0)';
@@ -265,11 +282,12 @@
         specialEvent.style.opacity = '0';
         specialEvent.style.transform = 'scale(0.95)';
         specialEvent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        
+
         setTimeout(() => {
             specialEvent.style.opacity = '1';
             specialEvent.style.transform = 'scale(1)';
         }, 300);
     </script>
 </body>
+
 </html>

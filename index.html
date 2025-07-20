@@ -1,12 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savory Bites | Fine Dining Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Gallery Section */
+        .gallery {
+            background-color: white;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Top Bar with Contact Info -->
     <div class="top-bar">
@@ -22,7 +77,7 @@
                 <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-    </div>          
+    </div>
 
     <!-- Header & Navigation -->
     <header id="header">
@@ -32,15 +87,13 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="menu.html">Menu</a></li>
                     <li><a href="event.html">Events</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#hours-location">Hours</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li class="btn"><a href="reservation.html">Reservation</a></li>
                 </ul>
-                <div class="nav-links">
-                <a href="" class="btn"> Reservation</a>
-</div>
+               
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -53,7 +106,8 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Experience Culinary Excellence</h1>
-                <p>Discover the perfect harmony of flavors crafted by our award-winning chefs using only the freshest local ingredients.</p>
+                <p>Discover the perfect harmony of flavors crafted by our award-winning chefs using only the freshest
+                    local ingredients.</p>
                 <a href="#reservation" class="btn">Reserve a Table</a>
             </div>
         </div>
@@ -68,13 +122,18 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Welcome to Savory Bites</h3>
-                    <p>Founded in 2005, Savory Bites has been serving exceptional cuisine in a warm and inviting atmosphere. Our restaurant is a celebration of culinary artistry, where traditional techniques meet innovative flavors.</p>
-                    <p>Executive Chef Michael Richardson brings over 20 years of international experience to our kitchen, creating dishes that tell a story and evoke emotions through every bite.</p>
-                    <p>We pride ourselves on sourcing ingredients from local farmers and producers, ensuring the highest quality while supporting our community.</p>
+                    <p>Founded in 2005, Savory Bites has been serving exceptional cuisine in a warm and inviting
+                        atmosphere. Our restaurant is a celebration of culinary artistry, where traditional techniques
+                        meet innovative flavors.</p>
+                    <p>Executive Chef Michael Richardson brings over 20 years of international experience to our
+                        kitchen, creating dishes that tell a story and evoke emotions through every bite.</p>
+                    <p>We pride ourselves on sourcing ingredients from local farmers and producers, ensuring the highest
+                        quality while supporting our community.</p>
                     <a href="#menu" class="btn">Explore Our Menu</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Restaurant Interior">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Restaurant Interior">
                 </div>
             </div>
         </div>
@@ -83,11 +142,13 @@
     <!-- Video Section -->
     <section class="video-section" id="video">
         <video autoplay muted loop>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-restaurant-chef-preparing-a-meal-4816-large.mp4" type="video/mp4">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/HGdb6Kp9vuk?autoplay=1&mute=1&loop=1&playlist=HGdb6Kp9vuk" 
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </video>
         <div class="video-overlay">
             <h2>Our Culinary Journey</h2>
-            <p>Watch our chefs in action as they create masterpieces from locally sourced ingredients. Every dish tells a story of passion and dedication to the culinary arts.</p>
+            <p>Watch our chefs in action as they create masterpieces from locally sourced ingredients. Every dish tells
+                a story of passion and dedication to the culinary arts.</p>
             <div class="play-btn">
                 <i class="fas fa-play"></i>
             </div>
@@ -109,43 +170,50 @@
             <div class="menu-items">
                 <!-- Starters -->
                 <div class="menu-item" data-category="starters">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Bruschetta">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                        alt="Bruschetta">
                     <div class="menu-item-content">
                         <h4>Tomato Bruschetta <span>$9.50</span></h4>
                         <p>Fresh tomatoes, basil, garlic, and olive oil on toasted artisan bread</p>
                     </div>
                 </div>
                 <div class="menu-item" data-category="starters">
-                    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Calamari">
+                    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Calamari">
                     <div class="menu-item-content">
                         <h4>Crispy Calamari <span>$12.00</span></h4>
                         <p>Tender squid lightly fried and served with lemon aioli and marinara sauce</p>
                     </div>
                 </div>
                 <div class="menu-item" data-category="starters">
-                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Salad">
+                    <img src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Salad">
                     <div class="menu-item-content">
                         <h4>Harvest Salad <span>$10.50</span></h4>
-                        <p>Mixed greens, roasted butternut squash, goat cheese, candied pecans, and balsamic vinaigrette</p>
+                        <p>Mixed greens, roasted butternut squash, goat cheese, candied pecans, and balsamic vinaigrette
+                        </p>
                     </div>
                 </div>
                 <!-- Mains -->
                 <div class="menu-item" data-category="mains">
-                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80" alt="Steak">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80"
+                        alt="Steak">
                     <div class="menu-item-content">
                         <h4>Filet Mignon <span>$32.00</span></h4>
                         <p>8oz grass-fed beef tenderloin with truffle mashed potatoes and seasonal vegetables</p>
                     </div>
                 </div>
                 <div class="menu-item" data-category="mains">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80" alt="Salmon">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80"
+                        alt="Salmon">
                     <div class="menu-item-content">
                         <h4>Pan-Seared Salmon <span>$26.50</span></h4>
                         <p>Wild-caught salmon with lemon beurre blanc, asparagus, and quinoa pilaf</p>
                     </div>
                 </div>
                 <div class="menu-item" data-category="mains">
-                    <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pasta">
+                    <img src="https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Pasta">
                     <div class="menu-item-content">
                         <h4>Truffle Mushroom Pasta <span>$22.00</span></h4>
                         <p>House-made fettuccine with wild mushrooms, truffle oil, and parmesan cream sauce</p>
@@ -153,21 +221,24 @@
                 </div>
                 <!-- Desserts -->
                 <div class="menu-item" data-category="desserts">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Chocolate Cake">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80"
+                        alt="Chocolate Cake">
                     <div class="menu-item-content">
                         <h4>Chocolate Lava Cake <span>$9.00</span></h4>
                         <p>Warm chocolate cake with a molten center, served with vanilla bean ice cream</p>
                     </div>
                 </div>
                 <div class="menu-item" data-category="desserts">
-                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Cheesecake">
+                    <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Cheesecake">
                     <div class="menu-item-content">
                         <h4>New York Cheesecake <span>$8.50</span></h4>
                         <p>Classic cheesecake with berry compote and whipped cream</p>
                     </div>
                 </div>
                 <div class="menu-item" data-category="desserts">
-                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80" alt="Crème Brûlée">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1557&q=80"
+                        alt="Crème Brûlée">
                     <div class="menu-item-content">
                         <h4>Vanilla Crème Brûlée <span>$8.00</span></h4>
                         <p>Classic vanilla custard with caramelized sugar crust</p>
@@ -175,21 +246,24 @@
                 </div>
                 <!-- Drinks -->
                 <div class="menu-item" data-category="drinks">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wine">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Wine">
                     <div class="menu-item-content">
                         <h4>House Wine Selection <span>$8-12/glass</span></h4>
                         <p>Rotating selection of red, white, and rosé wines from local vineyards</p>
                     </div>
                 </div>
                 <div class="menu-item" data-category="drinks">
-                    <img src="https://images.unsplash.com/photo-1600271886742-f049cd5bba54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Cocktail">
+                    <img src="https://images.unsplash.com/photo-1600271886742-f049cd5bba54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Cocktail">
                     <div class="menu-item-content">
                         <h4>Signature Cocktails <span>$12.00</span></h4>
                         <p>Seasonal craft cocktails made with premium spirits and fresh ingredients</p>
                     </div>
                 </div>
                 <div class="menu-item" data-category="drinks">
-                    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Coffee">
+                    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Coffee">
                     <div class="menu-item-content">
                         <h4>Artisan Coffee <span>$4.50-6.00</span></h4>
                         <p>Locally roasted coffee served as espresso, cappuccino, or pour-over</p>
@@ -208,34 +282,40 @@
             <div class="events-container">
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Wine Tasting">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            alt="Wine Tasting">
                     </div>
                     <div class="event-content">
-                        <span class="event-date">June 15, 2023</span>
+                        <span class="event-date2">June 15, 2023</span>
                         <h3>Wine Pairing Dinner</h3>
-                        <p>Join us for an exclusive five-course dinner expertly paired with selections from Napa Valley's finest vineyards.</p>
+                        <p>Join us for an exclusive five-course dinner expertly paired with selections from Napa
+                            Valley's finest vineyards.</p>
                         <a href="eventpage.html" class="btn">Reserve Your Spot</a>
                     </div>
                 </div>
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Live Music">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Live Music">
                     </div>
                     <div class="event-content">
-                        <span class="event-date">June 22, 2023</span>
+                        <span class="event-date2">June 22, 2023</span>
                         <h3>Jazz Night</h3>
-                        <p>Enjoy an evening of smooth jazz while savoring our chef's special small plates and craft cocktails.</p>
+                        <p>Enjoy an evening of smooth jazz while savoring our chef's special small plates and craft
+                            cocktails.</p>
                         <a href="eventpage.html" class="btn">Reserve Your Spot</a>
                     </div>
                 </div>
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cooking Class">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Cooking Class">
                     </div>
                     <div class="event-content">
-                        <span class="event-date">July 5, 2023</span>
+                        <span class="event-date2">July 5, 2023</span>
                         <h3>Chef's Table Experience</h3>
-                        <p>An intimate dining experience where our executive chef prepares a personalized menu just for your table.</p>
+                        <p>An intimate dining experience where our executive chef prepares a personalized menu just for
+                            your table.</p>
                         <a href="eventpage.html" class="btn">Reserve Your Spot</a>
                     </div>
                 </div>
@@ -255,34 +335,40 @@
             <div class="blog-container">
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cooking Tips">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            alt="Cooking Tips">
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">June 10, 2023</span>
                         <h3>5 Secrets to Perfect Steak at Home</h3>
-                        <p>Our executive chef shares his professional tips for cooking restaurant-quality steak in your own kitchen.</p>
+                        <p>Our executive chef shares his professional tips for cooking restaurant-quality steak in your
+                            own kitchen.</p>
                         <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Wine Pairing">
+                        <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                            alt="Wine Pairing">
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">May 28, 2023</span>
                         <h3>Wine Pairing Guide for Seafood Lovers</h3>
-                        <p>Discover which wines complement different types of seafood to elevate your dining experience.</p>
+                        <p>Discover which wines complement different types of seafood to elevate your dining experience.
+                        </p>
                         <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Local Ingredients">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80"
+                            alt="Local Ingredients">
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">May 15, 2023</span>
                         <h3>Meet Our Local Farmers</h3>
-                        <p>We visit the farms that supply our fresh ingredients and learn about their sustainable practices.</p>
+                        <p>We visit the farms that supply our fresh ingredients and learn about their sustainable
+                            practices.</p>
                         <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -298,49 +384,57 @@
             </div>
             <div class="gallery-container">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Restaurant Interior">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Restaurant Interior">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Dining Area">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        alt="Dining Area">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Food Presentation">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                        alt="Food Presentation">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80" alt="Steak Dish">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80"
+                        alt="Steak Dish">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80" alt="Salmon Dish">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80"
+                        alt="Salmon Dish">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Dessert">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80"
+                        alt="Dessert">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Wine Bar">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Wine Bar">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Live Music">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Live Music">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
@@ -370,7 +464,9 @@
                     <h3>Our Location</h3>
                     <p>123 Gourmet Avenue<br>Foodie District, NY 10001</p>
                     <p>Phone: (555) 123-4567<br>Email: info@savorybites.com</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573291234!2d-73.98784492416409!3d40.74844097138987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1685478123080!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573291234!2d-73.98784492416409!3d40.74844097138987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1685478123080!5m2!1sen!2sus"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -392,7 +488,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p>"The culinary experience at Savory Bites is unparalleled. Every dish is a masterpiece, and the service is impeccable. The wine pairing dinner was an unforgettable evening!"</p>
+                    <p>"The culinary experience at Savory Bites is unparalleled. Every dish is a masterpiece, and the
+                        service is impeccable. The wine pairing dinner was an unforgettable evening!"</p>
                     <h4>Sarah J.</h4>
                 </div>
                 <div class="testimonial">
@@ -404,7 +501,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p>"I've dined at many restaurants around the world, and Savory Bites stands among the best. The attention to detail in both food and atmosphere is remarkable."</p>
+                    <p>"I've dined at many restaurants around the world, and Savory Bites stands among the best. The
+                        attention to detail in both food and atmosphere is remarkable."</p>
                     <h4>Michael T.</h4>
                 </div>
                 <div class="testimonial">
@@ -416,7 +514,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <p>"The perfect spot for our anniversary dinner. The staff went above and beyond to make our evening special. The filet mignon was cooked to perfection!"</p>
+                    <p>"The perfect spot for our anniversary dinner. The staff went above and beyond to make our evening
+                        special. The filet mignon was cooked to perfection!"</p>
                     <h4>Emily R.</h4>
                 </div>
                 <div class="testimonial-nav">
@@ -483,7 +582,8 @@
             <div class="footer-container">
                 <div class="footer-col">
                     <h3>Savory Bites</h3>
-                    <p>Experience culinary excellence in the heart of the city. Our restaurant offers an unforgettable dining experience with locally sourced ingredients and innovative flavors.</p>
+                    <p>Experience culinary excellence in the heart of the city. Our restaurant offers an unforgettable
+                        dining experience with locally sourced ingredients and innovative flavors.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -511,7 +611,8 @@
                 </div>
                 <div class="footer-col">
                     <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter for updates on special events, seasonal menus, and exclusive offers.</p>
+                    <p>Subscribe to our newsletter for updates on special events, seasonal menus, and exclusive offers.
+                    </p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="Your Email Address" class="inputform" required>
                         <button type="submit" class="newsletter-button">Subscribe</button>
@@ -529,6 +630,114 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Menu Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.dataset.tab;
+
+                // Filter menu items
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            currentSlide = (n + testimonials.length) % testimonials.length;
+
+            testimonials[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.dataset.slide));
+            });
+        });
+
+        // Auto slide testimonials
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Video Play Button
+        const video = document.querySelector('.video-section video');
+        const playBtn = document.querySelector('.play-btn');
+
+        playBtn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                video.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('toggle');
+                    }
+                }
+            });
+        });
+
+        // Form Submission
+        const reservationForm = document.querySelector('.reservation-form');
+        if (reservationForm) {
+            reservationForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Thank you for your reservation! We will contact you shortly to confirm your booking.');
+                this.reset();
+            });
+        }
+
+        // Gallery Lightbox (would need additional HTML/CSS for full implementation)
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // In a full implementation, this would open a lightbox with the clicked image
+                console.log('Gallery item clicked - would open lightbox in full implementation');
+            });
+        });
+    </script>
 </body>
+
 </html>

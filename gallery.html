@@ -1,64 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Savory Bites</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Modern Gallery Styling */
-        :root {
-            --primary: #c19a6b;
-            --dark: #3d2b1f;
-            --light: #f8f8f8;
-            --text: #333;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            background-color: white;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Gallery Header */
-        .gallery-header {
-            text-align: center;
-            padding: 80px 0 60px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
-            color: white;
-            margin-bottom: 40px;
-        }
-
-        .gallery-header h1 {
-            font-size: 3.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .gallery-header p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
         /* Gallery Filter */
         .gallery-filter {
             display: flex;
@@ -75,19 +24,19 @@
             padding: 10px 25px;
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            color: var(--text);
+            color: var(--text-color);
             cursor: pointer;
             transition: var(--transition);
             border-bottom: 2px solid transparent;
         }
 
         .gallery-filter button.active {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
         }
 
         .gallery-filter button:hover {
-            color: var(--primary);
+            color: var(--primary-color);
         }
 
         /* Gallery Grid */
@@ -221,7 +170,7 @@
             .gallery-header h1 {
                 font-size: 2.5rem;
             }
-            
+
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
@@ -231,21 +180,63 @@
             .gallery-header h1 {
                 font-size: 2rem;
             }
-            
+
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- Gallery Header -->
-    <header class="gallery-header">
+      <!-- Top Bar with Contact Info -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <div class="contact-info">
+                <a href="tel:+15551234567"><i class="fas fa-phone"></i> (555) 123-4567</a>
+                <a href="mailto:info@savorybites.com"><i class="fas fa-envelope"></i> info@savorybites.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> 123 Gourmet Ave, NY</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
         <div class="container">
-            <h1>Our Gallery</h1>
-            <p>Experience the ambiance, culinary artistry, and memorable moments at Savory Bites</p>
+            <nav class="navbar">
+                <a href="index.html" class="logo">Savory Bites</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li class="btn"><a href="reservation.html">Reservation</a></li>
+                </ul>
+               
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
+    <!-- Hero Section -->
+    <section class="about-hero"
+        style="background: url(https://images.unsplash.com/photo-1732638523685-41d2d7f611e8?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Culinary Journey</h1>
+                <p>Founded in 2005, Savory Bites redefines fine dining through passion, innovation, and locally-sourced
+                    excellence.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Gallery Filter -->
     <div class="container">
@@ -262,65 +253,77 @@
     <div class="gallery-grid">
         <!-- Food Images -->
         <div class="gallery-item" data-category="food">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Tomato Bruschetta">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                alt="Tomato Bruschetta">
             <div class="gallery-caption">Tomato Bruschetta - Our Signature Starter</div>
         </div>
-        
+
         <div class="gallery-item" data-category="food">
-            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80" alt="Filet Mignon">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1398&q=80"
+                alt="Filet Mignon">
             <div class="gallery-caption">Filet Mignon - 8oz Grass-fed Beef</div>
         </div>
-        
+
         <div class="gallery-item" data-category="food">
-            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Chocolate Lava Cake">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80"
+                alt="Chocolate Lava Cake">
             <div class="gallery-caption">Chocolate Lava Cake - Best Seller Dessert</div>
         </div>
-        
+
         <!-- Interior Images -->
         <div class="gallery-item" data-category="interior">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dining Area">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Dining Area">
             <div class="gallery-caption">Main Dining Room - Evening Ambiance</div>
         </div>
-        
+
         <div class="gallery-item" data-category="interior">
-            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Bar Area">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="Bar Area">
             <div class="gallery-caption">Bar Area - Featuring Local Craft Cocktails</div>
         </div>
-        
+
         <div class="gallery-item" data-category="interior">
-            <img src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Outdoor Patio">
+            <img src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Outdoor Patio">
             <div class="gallery-caption">Seasonal Outdoor Patio</div>
         </div>
-        
+
         <!-- Events Images -->
         <div class="gallery-item" data-category="events">
-            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Wine Tasting Event">
+            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="Wine Tasting Event">
             <div class="gallery-caption">Monthly Wine Tasting Event</div>
         </div>
-        
+
         <div class="gallery-item" data-category="events">
-            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Live Jazz Night">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Live Jazz Night">
             <div class="gallery-caption">Friday Jazz Nights</div>
         </div>
-        
+
         <div class="gallery-item" data-category="events">
-            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cooking Class">
+            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Cooking Class">
             <div class="gallery-caption">Chef's Table Cooking Class</div>
         </div>
-        
+
         <!-- Team Images -->
         <div class="gallery-item" data-category="team">
-            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Executive Chef">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="Executive Chef">
             <div class="gallery-caption">Executive Chef Michael Richardson</div>
         </div>
-        
+
         <div class="gallery-item" data-category="team">
-            <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Pastry Chef">
+            <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="Pastry Chef">
             <div class="gallery-caption">Pastry Chef Anna Rodriguez</div>
         </div>
-        
+
         <div class="gallery-item" data-category="team">
-            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Service Team">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                alt="Service Team">
             <div class="gallery-caption">Our Award-Winning Service Team</div>
         </div>
     </div>
@@ -336,102 +339,152 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Savory Bites</h3>
+                    <p>Experience culinary excellence in the heart of the city. Our restaurant offers an unforgettable
+                        dining experience with locally sourced ingredients and innovative flavors.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-yelp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#video">Video</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#reservation">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>123 Gourmet Avenue<br>Foodie District, NY 10001</p>
+                    <p>Phone: (555) 123-4567<br>Email: info@savorybites.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on special events, seasonal menus, and exclusive offers.
+                    </p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" class="inputform" required>
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Savory Bites. All Rights Reserved. | Designed with passion for great food</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <script src="js/main.js"></script>
     <script>
-        // Gallery Filter
-        const filterButtons = document.querySelectorAll('.gallery-filter button');
-        const galleryItems = document.querySelectorAll('.gallery-item');
+        document.addEventListener('DOMContentLoaded', () => {
+            // Gallery Filter
+            const filterButtons = document.querySelectorAll('.gallery-filter button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
 
-                const filter = button.dataset.filter;
+                    const filter = button.dataset.filter;
 
-                // Filter items
-                galleryItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.category === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
                 });
             });
-        });
 
-        // Lightbox
-        const lightbox = document.querySelector('.lightbox');
-        const lightboxImg = document.querySelector('.lightbox-img');
-        const lightboxCaption = document.querySelector('.lightbox-caption');
-        const closeBtn = document.querySelector('.lightbox-close');
-        const prevBtn = document.querySelector('.lightbox-prev');
-        const nextBtn = document.querySelector('.lightbox-next');
+            // Lightbox
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = document.querySelector('.lightbox-img');
+            const lightboxCaption = document.querySelector('.lightbox-caption');
+            const closeBtn = document.querySelector('.lightbox-close');
+            const prevBtn = document.querySelector('.lightbox-prev');
+            const nextBtn = document.querySelector('.lightbox-next');
 
-        let currentImageIndex = 0;
-        const images = Array.from(document.querySelectorAll('.gallery-item img'));
-        const captions = Array.from(document.querySelectorAll('.gallery-caption'));
+            let currentImageIndex = 0;
+            const images = Array.from(document.querySelectorAll('.gallery-item img'));
+            const captions = Array.from(document.querySelectorAll('.gallery-caption'));
 
-        // Open lightbox
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                currentImageIndex = index;
-                updateLightbox();
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateLightbox();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
             });
-        });
 
-        // Close lightbox
-        closeBtn.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-
-        // Navigate lightbox
-        prevBtn.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            updateLightbox();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            updateLightbox();
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('active')) {
-                if (e.key === 'Escape') {
-                    lightbox.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                } else if (e.key === 'ArrowLeft') {
-                    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-                    updateLightbox();
-                } else if (e.key === 'ArrowRight') {
-                    currentImageIndex = (currentImageIndex + 1) % images.length;
-                    updateLightbox();
-                }
-            }
-        });
-
-        // Update lightbox content
-        function updateLightbox() {
-            const imgSrc = images[currentImageIndex].getAttribute('src');
-            const caption = captions[currentImageIndex].textContent;
-            
-            lightboxImg.setAttribute('src', imgSrc);
-            lightboxImg.setAttribute('alt', caption);
-            lightboxCaption.textContent = caption;
-        }
-
-        // Close when clicking outside image
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
+            closeBtn.addEventListener('click', () => {
                 lightbox.classList.remove('active');
                 document.body.style.overflow = 'auto';
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateLightbox();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        lightbox.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    } else if (e.key === 'ArrowLeft') {
+                        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                        updateLightbox();
+                    } else if (e.key === 'ArrowRight') {
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                        updateLightbox();
+                    }
+                }
+            });
+
+            function updateLightbox() {
+                const imgSrc = images[currentImageIndex].getAttribute('src');
+                const caption = captions[currentImageIndex].textContent;
+                lightboxImg.setAttribute('src', imgSrc);
+                lightboxImg.setAttribute('alt', caption);
+                lightboxCaption.textContent = caption;
             }
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
         });
     </script>
+
+
 </body>
+
 </html>

@@ -1,48 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation | Savory Bites</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Professional Color Scheme */
-        :root {
-            --primary: #8B5A2B; /* Rich brown */
-            --secondary: #D4A76A; /* Warm gold */
-            --dark: #1A120B; /* Dark chocolate */
-            --light: #F5F5F5; /* Off-white */
-            --text: #333333;
-            --text-light: #777777;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        .logo{
+            color:black !important;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--text);
-            line-height: 1.6;
-            background-color: var(--light);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
-                              url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        .nav-links a {
+            color: black;
+            font-weight: 600;
+            position: relative;
         }
 
         .reservation-container {
             width: 100%;
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 100px auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
@@ -106,7 +85,7 @@
 
         .info-item i {
             font-size: 1.2rem;
-            color: var(--secondary);
+            color: var(--secondary-color);
         }
 
         .info-text h3 {
@@ -134,7 +113,7 @@
 
         .form-header h2 {
             font-size: 2rem;
-            color: var(--dark);
+            color: var(--dark-color);
             margin-bottom: 10px;
             font-weight: 500;
             position: relative;
@@ -148,7 +127,7 @@
             left: 0;
             width: 60px;
             height: 3px;
-            background: var(--primary);
+            background: var(--primary-color);
         }
 
         .form-header p {
@@ -172,7 +151,7 @@
         .form-control {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #ddd;
+            border: 1px solid #ddd !important;
             border-radius: 6px;
             font-family: inherit;
             font-size: 1rem;
@@ -182,7 +161,7 @@
 
         .form-control:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: var(--primary-color);
             box-shadow: 0 0 0 2px rgba(139, 90, 43, 0.2);
         }
 
@@ -221,7 +200,7 @@
         .btn {
             display: inline-block;
             padding: 14px 30px;
-            background: var(--primary);
+            background: var(--primary-color);
             color: white;
             border: none;
             border-radius: 6px;
@@ -238,7 +217,7 @@
         }
 
         .btn:hover {
-            background: var(--dark);
+            background: var(--dark-color);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
@@ -255,7 +234,7 @@
 
         .confirmation-message i {
             font-size: 3.5rem;
-            color: var(--primary);
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
 
@@ -276,7 +255,7 @@
                 grid-template-columns: 1fr;
                 max-width: 700px;
             }
-            
+
             .reservation-hero {
                 min-height: 300px;
             }
@@ -286,31 +265,73 @@
             .reservation-form {
                 padding: 30px;
             }
-            
+
             .form-row {
                 grid-template-columns: 1fr;
                 gap: 0;
             }
-            
+
             .hero-content h1 {
                 font-size: 2.2rem;
             }
-            
+
             .restaurant-info {
                 flex-direction: column;
                 gap: 15px;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+
+      <!-- Top Bar with Contact Info -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <div class="contact-info">
+                <a href="tel:+15551234567"><i class="fas fa-phone"></i> (555) 123-4567</a>
+                <a href="mailto:info@savorybites.com"><i class="fas fa-envelope"></i> info@savorybites.com</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> 123 Gourmet Ave, NY</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Savory Bites</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li class="btn"><a href="reservation.html">Reservation</a></li>
+                </ul>
+               
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
     <div class="reservation-container">
         <div class="reservation-hero">
             <div class="hero-content">
                 <h1>Reserve Your Table</h1>
-                <p>Experience culinary excellence at Savory Bites. Book your table for an unforgettable dining experience.</p>
-                
+                <p>Experience culinary excellence at Savory Bites. Book your table for an unforgettable dining
+                    experience.</p>
+
                 <div class="restaurant-info">
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
@@ -319,7 +340,7 @@
                             <p>(212) 555-1234</p>
                         </div>
                     </div>
-                    
+
                     <div class="info-item">
                         <i class="fas fa-clock"></i>
                         <div class="info-text">
@@ -330,32 +351,33 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="reservation-form">
             <div class="form-header">
                 <h2>Make a Reservation</h2>
-                <p>Please fill out the form below to secure your table. We'll contact you to confirm your reservation.</p>
+                <p>Please fill out the form below to secure your table. We'll contact you to confirm your reservation.
+                </p>
             </div>
-            
+
             <form id="reservationForm">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" class="form-control" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" class="form-control" required>
                     </div>
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" class="form-control" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="guests">Number of Guests</label>
                         <div class="select-wrapper">
@@ -372,13 +394,13 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="form-row">
                     <div class="form-group">
                         <label for="date">Date</label>
                         <input type="date" id="date" class="form-control" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="time">Time</label>
                         <div class="select-wrapper">
@@ -403,15 +425,16 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="special-requests">Special Requests</label>
-                    <textarea id="special-requests" class="form-control" placeholder="Dietary restrictions, special occasions, etc."></textarea>
+                    <textarea id="special-requests" class="form-control"
+                        placeholder="Dietary restrictions, special occasions, etc."></textarea>
                 </div>
-                
+
                 <button type="submit" class="btn">Reserve Now</button>
             </form>
-            
+
             <div class="confirmation-message" id="confirmationMessage">
                 <i class="fas fa-check-circle"></i>
                 <h2>Reservation Confirmed</h2>
@@ -420,47 +443,102 @@
             </div>
         </div>
     </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Savory Bites</h3>
+                    <p>Experience culinary excellence in the heart of the city. Our restaurant offers an unforgettable
+                        dining experience with locally sourced ingredients and innovative flavors.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-yelp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#video">Video</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#reservation">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p>123 Gourmet Avenue<br>Foodie District, NY 10001</p>
+                    <p>Phone: (555) 123-4567<br>Email: info@savorybites.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates on special events, seasonal menus, and exclusive offers.
+                    </p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" class="inputform" required>
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Savory Bites. All Rights Reserved. | Designed with passion for great food</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="js/main.js"></script>
 
     <script>
         // Form submission
-        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        document.getElementById('reservationForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Show confirmation message
             document.getElementById('reservationForm').style.display = 'none';
             document.getElementById('confirmationMessage').style.display = 'block';
-            
+
             // Scroll to top of form
             document.querySelector('.reservation-form').scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
-        
+
         // New reservation button
-        document.getElementById('newReservationBtn').addEventListener('click', function() {
+        document.getElementById('newReservationBtn').addEventListener('click', function () {
             document.getElementById('reservationForm').style.display = 'block';
             document.getElementById('confirmationMessage').style.display = 'none';
             document.getElementById('reservationForm').reset();
         });
-        
+
         // Set minimum date to today
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('date').setAttribute('min', today);
-        
+
         // Time slot availability (example logic)
-        document.getElementById('date').addEventListener('change', function() {
+        document.getElementById('date').addEventListener('change', function () {
             // In a real app, you would fetch available times from your backend
             console.log('Date changed, checking availability for:', this.value);
         });
-        
+
         // Animation for form elements
         const formGroups = document.querySelectorAll('.form-group');
         formGroups.forEach((group, index) => {
             group.style.opacity = '0';
             group.style.transform = 'translateY(20px)';
             group.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            
+
             setTimeout(() => {
                 group.style.opacity = '1';
                 group.style.transform = 'translateY(0)';
@@ -468,4 +546,5 @@
         });
     </script>
 </body>
+
 </html>
